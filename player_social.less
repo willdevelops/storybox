@@ -1,0 +1,248 @@
+// Get all base styles
+@import "global/framework.less";
+
+#social {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 25%;
+    height: 20px;
+    background: #000;
+    background: rgba(0,0,0, .6);
+    display: block;
+    z-index: 15;
+    // border-left: 1px solid @vgBlack;
+    border-radius: 10px 0 0 0;
+    text-align: center;
+    cursor: pointer;
+    color: @vgWhite;
+
+    .shareBtn {
+        text-align: center;
+        margin-top: 4px;
+        margin-right: 5px;
+        display: inline-block;
+        position: relative;
+
+        p {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: 0;
+        }
+
+        &:hover {
+            p {
+                top: 15px;
+                color: rgba(255,255,255, .4);
+                -o-transition: .25s ease-out;
+                -moz-transition: .25s ease-out;
+                -webkit-transition: .25s ease-out;
+                transition: .25s ease-out;
+            }
+            .socialPopup {
+                bottom: 0;
+                -o-transition: .25s ease-out;
+                -moz-transition: .25s ease-out;
+                -webkit-transition: .25s ease-out;
+                transition: .25s ease-out;
+            }
+        }
+        .socialPopup {
+            position: absolute;
+            left: -15px;
+            bottom: -225px;
+            width: 50px;
+            text-align: center;
+            background: #000;
+            background: #000;
+            background: rgba(0,0,0,.4);
+            padding: 5px 5px 15px;
+            border: 1px solid @vgBlack;
+            .vgrounded();
+
+            .socialBtn {
+                text-indent: -9999px;
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                text-decoration: none;
+
+                &.facebookBtn {
+                    background: transparent url('/static/global/img/share/facebook.png') no-repeat;
+                    margin-bottom: 5px;
+                    margin-right: 5px;
+
+                    &:hover {
+                        background-position: 0 -20px;
+                    }
+                }
+                &.twitterBtn {
+                    background: transparent url('/static/global/img/share/twitter.png') no-repeat;
+                    margin-bottom: 5px;
+
+                    &:hover {
+                        background-position: 0 -20px;
+                    }
+                }
+                &.linkedinBtn {
+                    background: transparent url('/static/global/img/share/linkedin.png') no-repeat;
+                    margin-bottom: 5px;
+                    margin-right: 5px;
+
+                    &:hover {
+                        background-position: 0 -20px;
+                    }
+                }
+                &.googleplusBtn {
+                    background: transparent url('/static/global/img/share/plus.png') no-repeat;
+                    margin-bottom: 5px;
+
+                    &:hover {
+                        background-position: 0 -20px;
+                    }
+                }
+                &.youtubeBtn{
+                    background: transparent url('/static/global/img/share/youtube.png') no-repeat;
+                    margin-right: 5px;
+
+                    &:hover {
+                        background-position: 0 -20px;
+                    }
+                }
+                &.emailBtn {
+                    background: transparent url('/static/global/img/share/email.png') no-repeat;
+
+                    &:hover {
+                        background-position: 0 -20px;
+                    }
+                }
+            }
+        }
+    }
+}
+#flag {
+    background: transparent url('/static/global/img/flagSprite.png') no-repeat;
+    width: 14px;
+    height: 15px;
+    margin-top: 3px;
+    display: inline-block;
+
+    &:hover {
+        background-position: 0 -15px;
+    }
+}
+#voting {
+    position: absolute;
+    top: 60px;
+    right:4px;
+    z-index: 16;
+    .vgrounded(3px, 3px, 3px, 3px);
+    background: @vgBlack;
+    background: rgba(0,0,0,.45);
+
+    #vgVote {
+        width: 40px;
+        text-align: center;
+
+        #vgVoteFBBG {
+            display: inline-block;
+            box-shadow: inset 0 1px 0 #6188e3;
+            border-color: #1b2a4f;
+            background-color: #2f447f;
+            background-image: -moz-linear-gradient(top, #415a96 0%, #2f447f 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #415a96), color-stop(100%, #2f447f));
+            background-image: -webkit-linear-gradient(top, #415a96 0%, #2f447f 100%);
+            background-image: -o-linear-gradient(top, #415a96 0%, #2f447f 100%);
+            background-image: -ms-linear-gradient(top, #415a96 0%, #2f447f 100%);
+            background-image: linear-gradient(top, #415a96 0%, #2f447f 100%);
+            width: 20px;
+            height: 30px;
+
+            #vgVoteFB {
+                background: transparent url('/static/global/img/voteSpriteFB.png') -6px 1px no-repeat;
+                cursor: pointer;
+                color: #fff;
+                width: 20px;
+                height: 30px;
+
+                &:hover {
+                    background-position: -6px -34px;
+                }
+            }
+        }
+        #vgVoteTWBG {
+            display: inline-block;
+            box-shadow: inset 0 1px 0 #6188e3;
+            box-shadow: inset 0 1px 0 #a3e3ff;
+            border-color: #238dba;
+            background-color: #2ba9e1;
+            background-image: -moz-linear-gradient(top, #30c1ff 0%, #2ba9e1 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #30c1ff), color-stop(100%, #2ba9e1));
+            background-image: -webkit-linear-gradient(top, #30c1ff 0%, #2ba9e1 100%);
+            background-image: -o-linear-gradient(top, #30c1ff 0%, #2ba9e1 100%);
+            background-image: -ms-linear-gradient(top, #30c1ff 0%, #2ba9e1 100%);
+            background-image: linear-gradient(top, #30c1ff 0%, #2ba9e1 100%);
+            width: 20px;
+            height: 30px;
+
+            #vgVoteTW {
+                background: transparent url('/static/global/img/voteSpriteTW.png') -8px -2px no-repeat;
+                cursor: pointer;
+                color: #fff;
+                width: 20px;
+                height: 30px;
+
+                &:hover {
+                    background-position: -8px -37px;
+                }
+            }
+        }
+
+        #voteTxt {
+            color: @vgWhite;
+            .fs(12);
+        }
+        #numVotes {
+            color: @vgWhite;
+            .fs(12);
+        }
+    }
+}
+#noVideo {
+  height: 100%;
+  width: 100%;
+  background: #191919;
+  position: absolute;
+  top: 0;
+  display: block;
+  text-align: center;
+
+    p {
+        color: @vgWhite;
+        .fs(16);
+        font-family: @vgMyriad;
+        font-weight: bold;
+        position: relative;
+        top: 70px;
+        margin: 10px;
+    }  
+    #noVideoBtn {
+        position: relative;
+        top: 70px;
+        margin: 0 auto;
+        .btn-vg-pink();
+        cursor: pointer;
+        width: 124px;
+    }
+}
+.playerPoweredBy {
+    display: none;
+
+    .smallVGLogo {
+        display: inline;
+        color: @vgBlack;
+        text-decoration: underline;
+    }
+}
+

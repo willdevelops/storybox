@@ -1,0 +1,838 @@
+// Get all base styles
+@import "global/framework.less";
+
+#modalFrame{
+    background: rgba(255,255,255, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+}
+#recorder_overlay {
+    background: #fff !important;
+    background: rgba(255,255,255,.5) !important;
+}
+#playerBox_overlay {
+    z-index: 1000;
+    position: fixed;
+
+    .overlay-close {
+        display: block;
+        background: none;
+        color: #d1d1d1;
+        border: none;
+        font-size: 18px;
+        top: 3px;
+        right: 3px;
+    }
+}
+#topBar #top_record.record_now {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #fff;
+    .fs(12);
+    width: 130px;
+    height: 15px;
+    padding: 14px 40px 11px 0px;
+    text-transform: uppercase;
+    background: url('/static/global/img/sboxRecordLarge.jpg') no-repeat top right #7e7e7e;
+    text-align: center;
+    z-index: 10;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+#recorderContainer {
+    z-index: 101;
+    border: 4px solid #000000;
+    top: 50% !important;
+    left: 50%;
+    margin: -120px 0 0 -160px !important;
+}
+.hubImg {
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+    
+    div.hubvideo,
+    div.hubphoto,
+    div.hubtext {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+
+        background: rgba(255, 255, 255, .2);
+        .transition(background .5s);
+    }
+}
+.contributor { display: none; }
+#playerSocial {
+    #social {
+        bottom: 60px;
+        left: 0;
+        right: inherit;
+        background: none;
+        width: 155px;
+
+        .shareBtn {
+            text-align: left;
+            margin-top: 0;
+            margin-right: 0;
+            display: inline;
+            position: static;
+            width: 140px;
+
+            .socialPopup {
+                bottom: inherit;
+                display: inline;
+                background: none;
+                border: none;
+                padding: 0;
+                left: 0;
+                width: 150px;
+                text-align: left;
+
+                .socialBtn {
+                    margin-right: 5px;
+                }
+            }
+            p {
+                display: none;
+            }
+            &:hover p {
+                top: 0;
+                color: #fff;
+                -o-transition: 0;
+                -moz-transition: 0;
+                -webkit-transition: 0;
+                transition: 0;
+            }
+        }
+        #flag {
+            float: right;
+            background: transparent url('/static/global/img/flagSpriteBlk.png') no-repeat 0 0;
+
+            &:hover {
+                background-position: 0 -15px;
+            }
+        }
+    }
+    #voting {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        right: inherit;
+    }
+}
+.hide {
+    display: none;
+}
+#player{
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    &.content-video {
+        padding: 40px 40px 155px;
+        background: white;
+    }
+    &.type-content, &.type-image, &.type-text {
+        padding-bottom: 50px;
+        
+        .lightBoxPhoto {
+            padding: 40px;
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            span {
+                display: block;
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                bottom: 40px;
+                left: 40px;
+                z-index: 100;
+                display: block;
+                border-top: 3px solid #fff;
+                border-right: 3px solid #fff;
+            }
+            &.Photo span {
+                background: url(/static/campaign/external/img/socialIconSprite.png) no-repeat 0 0px;
+            }            
+            &.Instagram span {
+                background: url(/static/campaign/external/img/socialIconSprite.png) no-repeat 0 -20px;
+            }
+            &.Twitter span {
+                background: url(/static/campaign/external/img/socialIconSprite.png) no-repeat 0 -60px;
+            }
+            &.Youtube span {
+                background: url(/static/campaign/external/img/socialIconSprite.png) no-repeat 0 -100px;
+            }  
+            .photo {
+                position: static;
+                display: block;
+            }
+        }
+        .text {            
+            p.postBody {
+                position: relative;
+                top: 0px;
+                width: 100%;
+                max-height: inherit;
+                padding: 0;
+                margin: 13px 0;
+            }
+            .author {
+                position: relative;
+                top: 0;
+                width: 100%;
+                
+                .popUpHead {
+                    width: 70%;
+                }
+            }
+        }
+        &.content-photo, &.content-video {
+            min-height: 260px;
+
+            .lightBoxText {
+                width: 340px;
+                max-width: 220px;
+                float: right;
+                position: relative;
+                background: rgba(255,255,255, .9);
+                height: 70%;
+                display: block;
+                margin: 40px 40px 0 0;
+            }
+        }
+        &.content-video #clipInfo{
+            display:none;
+        }
+    }
+    &.type-image.content-photo {
+        padding-bottom: 110px;
+        min-height: 220px;
+    }
+}
+#playerBox_container {
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    width: 392px;
+    min-width: 250px;
+    height: 290px;
+    background: #fff url(/static/campaign/external/img/module-loader.gif) no-repeat center center;
+    z-index: 100;
+    margin: -145px 0 0 -186px;
+    border: 3px solid #7d7d7d;
+    overflow: hidden;
+
+    .transition(opacity .2s, margin .3s, height .3s, width .3s);
+
+    .playerPoweredBy {
+        position: absolute;
+        display: block;
+        color: @vgBlack;
+        z-index: 100;
+        .fs(10);
+        width: 120px;
+        bottom: 50px;
+        right: 3.5%;
+        text-align: left;
+
+        .smallVGLogo:hover {
+            text-decoration: none;
+        }
+    }
+    #social {
+        right: 19px;
+        bottom: 70px;
+        left: inherit;
+    }
+
+    .overlay-close {
+        background:@vgHeadline;
+        position:absolute;
+        width:15px;
+        height:15px;
+        top:10px;
+        right:10px;
+        color:@vgWhite;
+        font-weight:bold;
+        text-decoration: none;
+        border:1px solid @vgHeadline;
+        .vgrounded();
+        text-align:center;
+        padding:0px 0px 1px 0px;
+        z-index: 17;
+    }
+
+    #playerBox {
+        position: absolute;
+        overflow: hidden;
+        display: block;
+        background: #fff;
+        .transition(opacity .5s);
+
+        .prevVideo, .nextVideo {
+            top: 105px;
+        }
+        
+        #player_prompt {
+            position:absolute;
+            z-index: 10;
+            padding: 7px 160px 0px 6px;
+            width: inherit;
+            background: #e6e6e6 !important;
+            color: #191919 !important;
+            font-size: 14px !important;
+            font-size: 1.4rem !important;
+            line-height: 1.1em !important;
+            bottom: 0px;
+            top: inherit !important;
+            left: 0 !important;
+            right: 0;
+            margin: 0 40px 40px;
+
+            #record_now {
+                .fs(12);
+                width: 130px;
+                height: 15px;
+                margin: 12px 5px 0 0;
+                padding: 4px 15px 1px 0px;
+                text-transform: uppercase;
+                background: url('/static/global/img/sboxRecord.jpg') no-repeat 124px 0px #7e7e7e;
+                text-align: center;
+            }
+        }
+        #clipInfo {
+            bottom: 97px;
+            padding: 0 0 0 40px;
+
+            .contrib_name {
+                color: #7d7d7d;
+                text-shadow: none;
+                .fs(18);
+                height: 24px;
+            }
+        }
+    }
+    &.photoModule.textModule #playerBox #player_prompt {
+        z-index: 10;
+        padding: 10px;
+        width: inherit;
+        background: #e6e6e6 !important;
+        color: @vgBlack !important;
+        font-size: 11px !important;
+        font-size: 1.1rem !important;
+        line-height: 1.1em !important;
+        top: inherit !important;
+        left: inherit !important;
+        right: 0px;
+        bottom: 0px;
+        margin: 0 40px 40px;
+    }
+    &.videoModule {
+        #social {
+            right: 3.5%;
+            bottom: 113px;
+            left: inherit;
+        }
+        .playerPoweredBy {
+            bottom: 95px;
+            left: inherit !important;
+            text-align: right;
+        }
+    }
+    &.textModule {
+        .type-content.content-text {
+            max-width: 375px;
+            max-height: 175px;
+            padding: 40px 40px 140px;
+        }
+        #social {
+            bottom: 110px;
+            left: 40px;
+            right: inherit;
+        }
+        .playerPoweredBy {
+            bottom: 92px;
+            left: 40px;
+            right: inherit;
+            text-align: left;
+        }
+        #clipInfo {
+            display: none;
+        }
+    }
+    &.photoModule {
+        .type-content.content-text {
+            max-width: inherit;
+            max-height: inherit;
+        }
+        #social {
+            left: inherit;
+            bottom: 110px;
+            right: 13px;
+        }
+        &.textModule {
+            #social {
+                right: 107px;
+            }
+            .text {            
+                p.postBody {
+                    width: 92.5%;
+                    padding: 0 7.5% 0 0;
+                    margin: 13px 0;
+                    height: 65%;
+                    display: block;
+                }
+                .author {
+                    margin: 0;
+                    width: 92.5%;
+                }
+            }
+        }
+        .playerPoweredBy {
+            bottom: 50px;
+            right: 10px;
+            text-align: right;
+        }
+        #clipInfo {
+            display: none;
+        }
+    }
+    &.photoModule.textModule {
+        .content-photo {
+            padding-bottom: 0px;
+        }
+        #social {
+            bottom: 95px;
+        }
+        .playerPoweredBy {
+            bottom: 75px;
+            right: 120px;
+            text-align: left;
+            left: inherit;
+        }
+        .lightBoxPhoto {
+            padding: 40px;
+
+            span {
+                bottom: 40px;
+                left: 40px;
+            }
+        }
+        #playerBox #player_prompt {
+            height: auto;
+            padding-bottom: 30px;
+
+            #record_now {
+                margin: 0;
+                bottom: 5px;
+                top: inherit;
+                left: 5px;
+                right: inherit;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    #playerBox {
+        overflow: visible;
+    }
+    #player_prompt2 {
+        top: -50px !important;
+        left: -4px !important;
+        width: 82% !important;
+    }
+    #playerSocial #social {
+        bottom: 85px;
+    }
+    #playerBox_container {
+        &.photoModule.textModule #social {
+            right: inherit;
+            left: 6.5%;
+        }
+        &.photoModule.textModule .playerPoweredBy {
+            bottom: 50px;
+            right: inherit;
+            left: 7.5%;
+        }
+        #player{
+            background: #fff;
+            &.type-video.content-video, .type-video, &.type-youtube {
+                padding: 0;
+            }
+            &.content-text {
+                padding-bottom: 110px;
+                min-width: 280px;
+            }
+            &.content-photo, &.type-content.content-video {
+                padding-bottom: 115px;
+
+                .lightBoxPhoto {
+                    position: relative;
+                    padding: 0;
+                    width: 100%;
+                    background: #ddd;
+
+                    span {
+                        bottom: 0px;
+                        left: 0px;
+                    }
+                    img {
+                        margin: 0 auto;
+                        display: block;
+                        border: none;
+                    }
+                }
+                .text {
+                    .lightBoxText {
+                        float: none;
+                        width: inherit;
+                        max-width: inherit;
+                        overflow: auto;
+
+                        .author {
+                            margin: 0;
+                            width: 100%;
+                        }
+                        p.postBody {
+                            float: none;
+                            margin: 10px 7.5% 0;
+                            width: 100%;
+                            height: auto;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+            &.content-text {
+                padding-bottom: 150px;
+            }
+        }
+        .photoModule .overlay-close {
+            color: #595959;
+            text-shadow: 1px 1px 1px #eee;
+        }
+    }
+    #recorderContainer {
+        border: none;
+        top: 0 !important;
+        left: 0;
+        margin: 0 !important;
+        height: 100%;
+        width: 100%;
+
+        .topBar {
+            width: 100%;
+            height: 27px;
+            position: fixed;
+            z-index: 10;
+            top: 0px;
+            left: 0px;
+            border-top:1px solid #6aeeeb;
+            border-bottom: 2px solid #9e9e9e; 
+            background: #00aca8; /* Old browsers */
+            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYWNhOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iIzAxOGE4NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDY4NjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -moz-linear-gradient(top,  #00aca8 0%, #018a87 99%, #006866 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00aca8), color-stop(99%,#018a87), color-stop(100%,#006866)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #00aca8 0%,#018a87 99%,#006866 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #00aca8 0%,#018a87 99%,#006866 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #00aca8 0%,#018a87 99%,#006866 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  #00aca8 0%,#018a87 99%,#006866 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00aca8', endColorstr='#006866',GradientType=0 ); /* IE6-8 */
+
+            .recorder-overlay-close, #close.close-btn {
+                text-shadow: none;
+                color: #fff;
+                padding: 3px 3px 3px 3px;
+                top: 2px;
+                right: 5px;
+                    -webkit-box-shadow: 0px 0px 2px #ccc inset;
+                    -moz-box-shadow: 0px 0px 2px #ccc inset;
+                    -o-box-shadow: 0px 0px 2px #ccc inset;
+                box-shadow: 0px 0px 2px #ccc inset;
+                border: 1px solid #4979a0;
+                .vgrounded();
+                background: none;
+            }
+            #close.close-btn {
+                font-weight: bold;
+                .fs(14);
+                padding: 2px 6px 2px 6px;
+            }
+        }
+
+        #recorder {
+            background: #fefefe;
+            height: 100%;
+
+            .boxInner {
+                background-color: @vgWhite;
+                color: @vgBlack;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding-top: 40px;
+
+                #storyButtons {
+                    margin-top: 50px;
+                    background-color: @vgWhite;
+
+                    h2{
+                        color: @vgBlack;
+                    }
+                }
+                #recorderOptions {
+                    margin-top: 50px;
+                    background: @vgWhite;
+                }
+                #vidContainer {
+                    margin-top: 50px;
+                    background-color: @vgWhite;
+                }
+                #rightContainer {
+                    margin-top: 50px;
+                }
+                #youtubeForm { 
+                    color: black
+                }
+                #uploadFormContainer, .uploadFormContainer {
+                    background: @vgWhite;
+                    color: @vgBlack;
+
+                    h2 {
+                        color: @vgBlack;
+                    }
+                    p{
+                        color: @vgBlack;
+                    }
+                    .noticeStr, .youtubeDirections {
+                        color: @vgBlack;
+                    }
+                    #text-box #text-comment, #key-counter {
+                        background: #eee;
+                        color: #191919;
+                    }
+                }
+            }
+            #contributorInfoContainer {
+                margin-top: 50px;
+
+                .contribFormHead {
+                    color: @vgBlack;
+                }
+                .cifrow {
+                    color: @vgBlack;
+                }
+                .cifrow.tos, .cifrow.tos2 {
+                    color: @vgBlack;
+                }
+                .cifrow a {
+                    color: #666;
+                }
+            }
+            #uploadConfirmPage .thumbContainer {
+                width: auto;
+                height: auto;
+                margin-top: 50px;
+            }
+            p a {
+                color: #666;
+            }
+            #file-name {
+                color: @vgBlack;
+                background: #ccc;
+            }
+            #successMessageContainer {
+                margin-top: 50px;
+                h2 {
+                    color: @vgBlack;
+                }
+                p {
+                    color: @vgBlack;
+                }
+                #shareContainer p {
+                    color: @vgBlack;
+                }
+            }
+        }
+        #helpFormContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            padding: 0;
+
+            #recorderForm {
+                margin: 40px 10px 10px;
+            }
+        }
+    }
+    #player_prompt {
+        text-indent: -9999px;
+    }
+    #playerBox_container {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 100;
+        margin: 0;
+        border: 0;
+        overflow: auto;
+
+        #player_prompt {
+            display: none;
+        }
+        .topBar {
+            width: 100%;
+            height: 27px;
+            position: fixed;
+            z-index: 10;
+            top: 0px;
+            left: 0px;
+            border-top:1px solid #6aeeeb;
+            border-bottom: 2px solid #9e9e9e; 
+            background: #00aca8; /* Old browsers */
+            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYWNhOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iIzAxOGE4NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDY4NjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -moz-linear-gradient(top,  #00aca8 0%, #018a87 99%, #006866 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00aca8), color-stop(99%,#018a87), color-stop(100%,#006866)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #00aca8 0%,#018a87 99%,#006866 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #00aca8 0%,#018a87 99%,#006866 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #00aca8 0%,#018a87 99%,#006866 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  #00aca8 0%,#018a87 99%,#006866 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00aca8', endColorstr='#006866',GradientType=0 ); /* IE6-8 */
+
+            .overlay-close {
+                text-shadow: none;
+                color: #fff;
+                padding: 3px 3px 3px 3px;
+                top: 2px;
+                right: 5px;
+                    -webkit-box-shadow: 0px 0px 2px #ccc inset;
+                    -moz-box-shadow: 0px 0px 2px #ccc inset;
+                    -o-box-shadow: 0px 0px 2px #ccc inset;
+                box-shadow: 0px 0px 2px #ccc inset;
+                border: 1px solid #4979a0;
+                .vgrounded();
+            }
+            .record_now.topBarBtn{
+                display: block !important;
+                width: 100px;
+                padding: 4px 10px 3px;
+                margin: 2px 0 0 5px;
+                color: #fff;
+                top: 3px;
+                left: 5px;
+                    -webkit-box-shadow: 0px 0px 2px #ccc inset;
+                    -moz-box-shadow: 0px 0px 2px #ccc inset;
+                    -o-box-shadow: 0px 0px 2px #ccc inset;
+                box-shadow: 0px 0px 2px #ccc inset;
+                border: 1px solid #4979a0;
+                .vgrounded();
+                .fs(12);
+                font-family: @vgMuseoSemiBold;
+                text-decoration: none;
+                text-align: center;
+            }
+        }
+        #playerBox {
+            width: 100%;
+            height: 100%;
+            overflow: overlay;
+
+            div.player_cont {
+                width: 100%;
+                height: 100%;
+            }
+            .playerPoweredBy {
+                bottom: 0;
+                right: 5px;
+                left: inherit;
+                position: fixed;
+                width: 145px;
+            }
+            #clipInfo {
+                top: 280px;
+                padding-left: 10px;
+            }
+        }
+        #player.content-photo {
+            padding-bottom: 0;
+            width: 100% !important;
+
+            .lightBoxPhoto {
+                height: auto;
+                margin-top: 30px;
+            }
+            .lightBoxText {
+                height: auto;
+                padding-bottom: 50px;
+            }
+        }
+        #player.content-text {
+            padding-bottom: 0;
+            width: 100% !important;
+
+            .lightBoxText {
+                height: auto;
+                margin-top: 50px;
+            }
+        }
+        #player.content-video {
+            padding: 0;
+            width: 100% !important;
+
+            .jwPlayerCnt {
+                min-height: 240px;
+                height: auto;
+                margin-top: 30px;
+            }
+        }
+        #voting {
+            top: 280px;
+            right: 10px;
+            left: inherit;
+        }
+        #playerSocial {
+            #social {
+                left: 0;
+                bottom: 0;
+                height: 30px;
+                width: 100%;
+                background-color: #e6e6e6;
+                padding-top: 10px;
+                position: fixed;
+
+                .shareBtn .socialPopup {
+                    margin-left: 10px;
+                }
+                #flag {
+                    left: 150px;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}

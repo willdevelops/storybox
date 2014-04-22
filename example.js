@@ -14,6 +14,9 @@ var Example = {
         $.each(data, function(key, item){
             Example.drawItem(network, item);
             
+            // let the library know we have used this item
+            sentimentHub.markDataItemAsUsed(item);
+            
             Example.playIfShared(item);
         })
     },

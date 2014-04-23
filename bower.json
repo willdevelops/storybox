@@ -1,0 +1,10 @@
+{
+  "name": "Bubbles",
+  "version": "0.0.0.0.0.0.1",
+  "main": "storybox",
+  "homepage": "",
+  "license": "Proprietary",
+  "dependencies": {
+    "d3": "~3.4.6"
+    }
+}

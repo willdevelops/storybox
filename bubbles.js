@@ -18,7 +18,7 @@ var Bubble = {
     onDataDone: function(data){
         console.log('bubble on data done');
         console.log(data);
-        Bubble.drawBubbles(data.slice(0,20));
+        Bubble.drawBubbles(data.slice(0,25));
     },
     
     playIfShared: function(item){

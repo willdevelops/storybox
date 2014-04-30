@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+
+<title>VideoGenie</title>
+    <link rel="stylesheet" href="//vg-qaassets.s3.amazonaws.com/static/campaign/external/css/bootstrap-stripped.min.css" />
+    <link rel="stylesheet" href="player_social.less" type="text/less" />    
+    <link rel="stylesheet" href="comp_player.less" type="text/less" />    
+    <link rel="stylesheet" href="popup.less" type="text/less" />    
+    <link rel="stylesheet" href="accordionCanvas.less" type="text/less" />
+
+    <!-- Script tags -->
+    <script src="lib/kinetic-v5.1.0.min.js"></script>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/json2.min.v1.js"></script>
+    <script src="lib/jquery-ui-1.8.2.smoothness-limited.min.v1.js"></script>
+    <script src="lib/jquery.placeholder.min.js"></script>
+    <script src="lib/detectmobilebrowser.js"></script>
+    <script src="lib/swfobject.js"></script>
+
+    <script src="lib/jquery.form.v1.js"></script>
+    <script src="lib/jquery.cookie.v1.js"></script>
+    <script src="lib/ga_custom_vars.js"></script>
+    <script src="lib/ga_events.js"></script>
+    <script src="lib/component.js"></script>
+    <script src="lib/twitter.js"></script>
+    <script src="//vg-qaassets.s3.amazonaws.com/static/campaign/external/js/sentimenthub.v1.js"></script>
+    <script src="//vg-qaassets.s3.amazonaws.com/static/global/js/xlat.v1.js"></script>
+
+    <script src="//vg-qaassets.s3.amazonaws.com/static/global/jwplayer/jwplayer.js"></script>
+    
+    <script type="text/javascript">
+      // Google standard analytics code (with addition of our library init)
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-10484902-13']);
+      _gaq.push(['_setDomainName', location.hostname]);
+
+      // Initialize our google analytic library
+      var ga_vars = new GAVars('Mountain Hardwear', 'cl_71a36a7d-27e8-49d0-9343-dd92b21c655d', '278f55d', 
+        'cm_6a68a154-b4f0-4b29-97e2-1cd8a6541ada', 'shb_24830526-c850-435f-9f7a-54e10f11b9b1', 'eo5RT2620775|shb|199b1', 'videogenie.com');
+      var ga_events = new GAEvents(ga_vars);
+      // End
+
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      // END Google standard analytics code
+    </script>
+
+    <script type='text/javascript'>
+      var user_state = 'Example Module Loaded';
+      var last_user_state = user_state;
+      var lang = "en";
+      var isDebug = "true";
+      var enableCommunications = "false";
+      var page_protocol = 'http';
+      var vg_cdn_base_url = 'http://akdl1.videogenie.com/';
+      var vg_base_url = 'http://qaapp.videogenie.com/';
+      var staticUrl = 'http://vg-qaassets.s3.amazonaws.com/static/';
+      var client_ip = '123.123.123.123';
+      var cookieDomain = 'videogenie.com';
+      var client_name = "Example";
+      var campaign_title = "Example Campaign";
+      var prompt = "Share Your Adventures with Us! #FindingWinter";
+      var fbAppId = "198041457002714";
+      var fbPageId = "";
+      var fbPageUrl = "";
+      var fbIsLiked = "";
+      var enableShare = true;
+      //var showContributorNames = true;
+      var shareTitle = "Celebrate winter and the lengths we go to experience it";
+      var shareDesc = "#FindingWinter with Mountain Hardwear";
+      var enableJSLog = true;
+      //var moduleURL = "http://qaapp.videogenie.com/c/shb/199b1/finding-winter";
+      var moduleURL = window.location.href;
+      var moduleShortURL = window.location.href;
+      var moduleUid = "shb_24830526-c850-435f-9f7a-54e10f11b9b1";
+      var campaignUid = "cm_6a68a154-b4f0-4b29-97e2-1cd8a6541ada";
+      var campaignInfo = {};
+      
+      jwplayer.key="w/+pa/RvlwCSJvO/OULeM0gXZe3+L5eEluXgTA==";
+
+      // player settings
+      var ctaLabel = '';
+      var ctaUrl = '';
+      var enableFbLikes = true;
+      var enableModeration = true;
+      var enableVote = true;
+      var fbAppId = '194216667401359';
+      var useInnerLogo = true;
+      var defer = false;
+      var sharePluginEnabled = true;
+      
+      $(document).ready(function(){
+        ga_events.moduleLoaded('shb', 'site');
+      });
+
+    </script>
+
+    <script src="//vg-qaassets.s3.amazonaws.com/static/campaign/external/js/modules.v1.js"></script>
+    <script src="//vg-qaassets.s3.amazonaws.com/static/campaign/external/js/sentimenthub.v1.js"></script>
+    <script src="//vg-qaassets.s3.amazonaws.com/static/campaign/external/js/player.v1.js"></script>
+    
+    <script src="accordionCanvas2.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="//vg-qaassets.s3.amazonaws.com/static/global/js/less-1.4.1.min.js"></script>
+
+
+    
+    <script>
+        sentimentHub = new VGSentimentHub(campaignUid, {
+            VGVideo:    { count: 5 },
+            Photo:      { count: 5 },
+            Twitter:    { count: 5 },
+            Instagram:  { count: 5 },
+            Youtube:    { count: 5 }
+        });
+    
+        $(function(){
+            player.initPopup($("#playerBox_container"));
+            
+            Accordion.init($(".gallery"));
+        });
+    </script>
+</head>
+<body>
+    
+    <div id="accordionDiv" class="accordion">
+    <ul id="accordion" style="position:relative;">
+
+    </ul>
+    </div>
+
+    
+    <div id="xy">
+    </div>
+
+
+    
+    <div class="gallery">
+        <!-- Gallery is rendered here -->
+    </div>
+    
+    <!-- Player popup code. -->
+    <div id="playerBox_overlay" class="overlay hide"> <div class="overlay-bg"> </div> <div id="playerBox_container"> <div id="playerBox"> <a class="prevVideo">&lsaquo;</a> <div id="player_prompt"> <a id="record_now" class="record_now" href="#">Share Your Story</a> Your Story </div> <div class="topBar"> <a href="#" class="record_now topBarBtn" style="display: none;">Share Your Story</a> <a href="#" class="overlay-close closeBtn topBarBtn">&times;</a> </div> <div class="player_cont" style="color:white"> <div id="playerSocial"> <div id="voting"></div><div id="social" style="display:none;"> <div class="shareBtn" title="Share"> <p>Share</p> <div class="socialPopup"> <a class="facebookBtn socialBtn" title="Facebook"> Facebook </a> <a class="twitterBtn socialBtn" title="Twitter"> Twitter </a> <a class="linkedinBtn socialBtn" title="Linked In"> Linked In </a> <a class="googleplusBtn socialBtn" title="Google Plus"> Google Plus </a> <a class="emailBtn socialBtn" title="Email"> Email </a> </div> </div> </div><div class="playerPoweredBy"> Powered By <a href="http://www.videogenie.com/" target="_blank" class="smallVGLogo">VideoGenie</a></div> <div class="player" id="player"> <div class="player-cnt" id="player-cnt"><img class="thumb" src="https://akdl1.videogenie.com/blank.jpg" alt="click to play" /> <div class="player-warning"><span class="player-warning-message">Your browser does not support video playback.</span></div> </div> </div></div> </div> <div id="clipInfo"> </div> <a class="nextVideo">&rsaquo;</a> </div> </div> </div>    
+    <script>
+    var player = new VGPlayer('player', [campaignInfo.firstClip] ,{
+        autoPlay: false, 
+        enableFbLikes: true,
+        enableVote: true,
+        enableModeration: true,
+        sharePlugins: true,
+        showLogo: true,
+        ctaLabel: '', 
+        ctaUrl: '',
+        onNoClip: function() { },
+        showVideoNotFound: campaignInfo.videoNotFound,
+        incentivizedText: ""
+    });
+    </script>
+    <script>
+        
+    </script>
+
+    <!-- END: Player popup code. -->
+</body>
+</html>
